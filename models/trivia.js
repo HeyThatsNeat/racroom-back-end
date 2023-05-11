@@ -23,7 +23,7 @@ const triviaSchema = new Schema({
   title: String,
   owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
   category: String,
-  scores: { type: Schema.Types.ObjectId, ref: 'Score' },
+  scores: [{ type: Schema.Types.ObjectId, ref: 'Score' }],
   questions: [questionSchema]
 },{
   timestamps: true,
