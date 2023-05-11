@@ -4,7 +4,9 @@ const Schema = mongoose.Schema
 
 const profileSchema = new Schema({
   userName: String,
-  photo: String
+  photo: String,
+  trivia: { type: Schema.Types.ObjectId, ref: 'Trivia' },
+  scores: { type: Schema.Types.ObjectId, ref: 'Score' },
 },{
   timestamps: true,
 })
