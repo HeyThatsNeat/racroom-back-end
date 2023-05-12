@@ -22,8 +22,12 @@ const questionSchema = new Schema({
 const triviaSchema = new Schema({
   title: String,
   owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
-  category: String,
-  scores: { type: Schema.Types.ObjectId, ref: 'Score' },
+  category: {
+    type: String,
+    required: true,
+    enum: ['Keyboard Shortcuts', 'Programming', 'Games', 'History', 'Languages', 'Television', 'Pop Culture'],
+  },
+  scores: [{ type: Schema.Types.ObjectId, ref: 'Score' }],
   questions: [questionSchema]
 },{
   timestamps: true,
@@ -32,3 +36,4 @@ const triviaSchema = new Schema({
 const Trivia = mongoose.model('Trivia', triviaSchema)
 
 export { Trivia }
+
