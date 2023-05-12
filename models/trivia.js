@@ -25,7 +25,7 @@ const triviaSchema = new Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Keyboard Shortcuts', 'Programming', 'Games', 'History', 'Languages', 'Television'],
+    enum: ['Keyboard Shortcuts', 'Programming', 'Games', 'History', 'Languages', 'Television', 'Pop Culture'],
   },
   scores: [{ type: Schema.Types.ObjectId, ref: 'Score' }],
   questions: [questionSchema]
