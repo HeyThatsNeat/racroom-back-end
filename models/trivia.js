@@ -20,7 +20,9 @@ const questionSchema = new Schema({
 
 
 const triviaSchema = new Schema({
-  title: String,
+  title: { 
+    type:String,
+    required: true },
   owner: { type: Schema.Types.ObjectId, ref: 'Profile' },
   category: {
     type: String,
