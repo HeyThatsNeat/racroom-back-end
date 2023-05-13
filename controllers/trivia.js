@@ -12,7 +12,8 @@ const create = async (req, res) => {
       { new: true }
     )
     trivia.owner = profile
-    res.status(201).json(trivia);
+    res.status(201).json(trivia)
+    console.log("TRIVIA", trivia)
   } catch (err) {
     console.log(err)
     res.status(500).json(err)
