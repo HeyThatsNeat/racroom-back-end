@@ -11,6 +11,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.post("/", checkAuth, triviaCtrl.create)
 router.get("/", checkAuth, triviaCtrl.index)
+router.get("/:triviaId", checkAuth, triviaCtrl.show)
 
 
 
