@@ -13,4 +13,5 @@ router.post("/", checkAuth, triviaCtrl.create)
 router.get("/", checkAuth, triviaCtrl.index)
 
 
+
 export { router }
