@@ -3,7 +3,7 @@ import { Trivia } from "../models/trivia.js"
 
 const create = async (req, res) => {
   try {
-    req.body.author = req.user.profile
+    req.body.owner = req.user.profile
     console.log(req.body)
     const trivia = await Trivia.create(req.body)
     const profile = await Profile.findByIdAndUpdate(
