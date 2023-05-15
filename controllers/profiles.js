@@ -3,7 +3,7 @@ import { v2 as cloudinary } from 'cloudinary'
 
 async function index(req, res) {
   try {
-    const profiles = await Profile.find({}).populate('name')
+    const profiles = await Profile.find({})
     res.json(profiles)
   } catch (err) {
     console.log(err)
