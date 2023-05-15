@@ -57,7 +57,7 @@ const update = async (req, res) => {
     }
 }
 
-async function deleteTrivia(req, res) {
+const deleteTrivia = async (req, res) => {
   try {
     const trivia = await Trivia.findByIdAndDelete(req.params.triviaId)
     // req.user.profile is being used through middleware, decodeUserFromToken route
