@@ -57,9 +57,27 @@ const update = async (req, res) => {
     }
 }
 
+async function deleteTrivia(req, res) {
+  try {
+    const trivia = await Trivia.findByIdAndDelete(req.params.triviaId)
+    // req.user.profile is being used through middleware, decodeUserFromToken route
+    const profile = await Profile.findById(req.user.profile)
+    // req.params.triviaId can also be trivia._id from line 69. Its actually better to do trivia._id
+    profile.trivia.remove({_id: req.params.triviaId})
+    await profile.save()
+    // we are returning the trivia that was deleted for filtering purposes in the front end. To filter the deleted on from the rest.
+    res.json(trivia)
+    console.log("TRIVIA DELETED",trivia)
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error)
+  }
+}
+
 export {
     create,
     index,
     show,
     update,
+    deleteTrivia as delete,
 }
