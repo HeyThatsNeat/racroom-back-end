@@ -20,6 +20,18 @@ const create = async (req, res) => {
     }
 }
 
+const create = async (req, res) => {
+  try {
+    req.body.author = req.user.profile
+    const trivia = await Trivia.create(req.body)
+    const profile = await Profile.findByIdAndUpdate(
+      req.user.profile,
+      { $push: { trivias: trivia } },
+      { new: true }
+    )
+    trivia.author = profile
+    res.status(201).json(trivia)
+
 const index = async (req, res) => {
     try {
         const trivia = await Trivia.find({})
