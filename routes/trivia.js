@@ -10,6 +10,7 @@ const router = Router()
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
 router.post("/", checkAuth, triviaCtrl.create)
+router.post("/:triviaId/score", checkAuth, triviaCtrl.addScore)
 router.get("/", checkAuth, triviaCtrl.index)
 router.get("/:triviaId", checkAuth, triviaCtrl.show)
 router.put("/:triviaId", checkAuth, triviaCtrl.update)

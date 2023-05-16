@@ -18,6 +18,12 @@ const questionSchema = new Schema({
   timestamps: true
 })
 
+const scoreSchema = new Schema({
+  score: Number,
+  owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
+}, {
+  timestamps: true
+})
 
 const triviaSchema = new Schema({
   title: { 
@@ -30,7 +36,8 @@ const triviaSchema = new Schema({
     enum: ['Keyboard Shortcuts', 'Programming', 'Games', 'History', 'Languages', 'Television', 'Pop Culture'],
   },
   scores: [{ type: Schema.Types.ObjectId, ref: 'Score' }],
-  questions: [questionSchema]
+  questions: [questionSchema],
+  scores: [scoreSchema]
 },{
   timestamps: true,
 })
