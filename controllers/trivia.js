@@ -107,5 +107,6 @@ export {
     index,
     show,
     update,
+    updateScore,
     deleteTrivia as delete,
 }
