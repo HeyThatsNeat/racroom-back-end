@@ -84,6 +84,21 @@ const update = async (req, res) => {
     }
 }
 
+const updateScore = async (req,res) => {
+    try {
+        req.body.owner = req.user.profile
+        const { triviaId, scoreId } = req.params
+        const trivia = await Trivia.findById(triviaId)
+        const score = trivia.scores.id(scoreId)
+        score.score = req.body.score
+        await trivia.save()
+        res.status(200).json(trivia)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json(error)
+    }
+}
+
 const deleteTrivia = async (req, res) => {
   try {
     const trivia = await Trivia.findByIdAndDelete(req.params.triviaId)
