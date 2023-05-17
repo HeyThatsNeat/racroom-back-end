@@ -18,5 +18,5 @@ router.put("/:triviaId/scores/:scoreId", checkAuth, triviaCtrl.updateScore)
 router.delete("/:triviaId", checkAuth, triviaCtrl.delete)
 
 
-
 export { router }
+
