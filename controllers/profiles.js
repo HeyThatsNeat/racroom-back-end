@@ -11,6 +11,22 @@ async function index(req, res) {
   }
 }
 
+async function show(req, res) {
+  try {
+    const profileId = req.params.profileId
+    const profile = await Profile.findById(profileId)
+    
+    if (!profile) {
+      return res.status(404).json({ message: 'Profile not found' })
+    }
+    
+    res.json(profile)
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
+}
+
 async function addPhoto(req, res) {
   try {
     const imageFile = req.files.photo.path
