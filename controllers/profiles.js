@@ -13,13 +13,10 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    const profileId = req.params.profileId
-    const profile = await Profile.findById(profileId)
-
+    const profile = await Profile.findById(req.params.profileId)
     if (!profile) {
-      return res.status(404).json({ message: "Profile not found" })
+      return res.status(404).json({ error: 'Profile not found' })
     }
-
     res.json(profile)
   } catch (err) {
     console.log(err)
