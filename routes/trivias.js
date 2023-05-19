@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import * as triviaCtrl from '../controllers/trivia.js'
+import * as triviaCtrl from '../controllers/trivias.js'
 import { decodeUserFromToken, checkAuth } from '../middleware/auth.js'
 
 const router = Router()
