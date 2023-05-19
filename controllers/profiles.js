@@ -15,7 +15,7 @@ async function show(req, res) {
   try {
     const profile = await Profile.findById(req.params.profileId)
     if (!profile) {
-      return res.status(404).json({ error: 'Profile not found' })
+      return res.status(404).json({ error: "Profile not found" })
     }
     res.json(profile)
   } catch (err) {
