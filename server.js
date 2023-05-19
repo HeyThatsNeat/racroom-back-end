@@ -11,7 +11,7 @@ import './config/database.js'
 // import routes
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as authRouter } from './routes/auth.js'
-import { router as triviaRouter } from './routes/trivia.js'
+import { router as triviasRouter } from './routes/trivias.js'
 
 // create the express app
 const app = express()
@@ -25,7 +25,7 @@ app.use(formData.parse())
 // mount imported routes
 app.use('/api/profiles', profilesRouter)
 app.use('/api/auth', authRouter)
-app.use('/api/trivia', triviaRouter)
+app.use('/api/trivias', triviasRouter)
 
 // handle 404 errors
 app.use(function (req, res, next) {
