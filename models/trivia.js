@@ -33,7 +33,7 @@ const triviaSchema = new Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Games', 'General Knowledge', 'Languages', 'Television', 'Pop Culture', 'Sports', 'Music', 'Science', 'History', 'Geography', 'Food & Drink', 'Art & Literature', 'Mythology & Folklore', 'Brain Teasers', 'Nature', 'Politics', 'Technology', 'Fashion', 'Business', 'Fiction'],
+    enum: ['All', 'Games', 'General Knowledge', 'Languages', 'Television', 'Pop Culture', 'Sports', 'Music', 'Science', 'History', 'Geography', 'Food & Drink', 'Art & Literature', 'Mythology & Folklore', 'Brain Teasers', 'Nature', 'Politics', 'Technology', 'Fashion', 'Business', 'Fiction'],
   },
   scores: [{ type: Schema.Types.ObjectId, ref: 'Score' }],
   questions: [questionSchema],
